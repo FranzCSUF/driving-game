@@ -28,4 +28,23 @@ class Car {
   }
 }
 
+window.addEventListener('keydown', function (event) {
+  switch (event.key) {
+    case 'ArrowUp':
+      carImage.setAttribute('class', 'north')
+  }
+  switch (event.key) {
+    case 'ArrowDown':
+      carImage.setAttribute('class', 'south')
+  }
+  switch (event.key) {
+    case 'ArrowLeft':
+      carImage.setAttribute('class', 'west')
+  }
+  switch (event.key) {
+    case 'ArrowRight':
+      carImage.setAttribute('class', 'east')
+  }
+})
+
 var alfaRomeo = new Car(carImage)
