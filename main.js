@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-var $img = document.querySelector('img')
+var carImage = document.querySelector('img')
 
 class Car {
   constructor($img, speed, direction, location) {
@@ -9,3 +9,5 @@ class Car {
     this.location = location
   }
 }
+
+var alfaRomeo = new Car(carImage)
