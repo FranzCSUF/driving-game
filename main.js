@@ -9,6 +9,7 @@ class Car {
     this.location = location
   }
   turn(direction) {
+    this.direction = direction
     switch (direction) {
       case 'north':
         this.$img.setAttribute('class', 'north')
