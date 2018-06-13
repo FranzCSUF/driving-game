@@ -24,6 +24,21 @@ class Car {
         this.$img.setAttribute('class', 'west')
     }
   }
+  move() {
+    switch (this.direction) {
+      case 'north':
+        this.location[1] -= this.speed
+        break
+      case 'south':
+        this.location[1] += this.speed
+        break
+      case 'east':
+        this.location[0] += this.speed
+        break
+      case 'west':
+        this.location[0] -= this.speed
+    }
+  }
 }
 
 var alfaRomeo = new Car(carImage)
