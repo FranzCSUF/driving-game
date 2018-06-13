@@ -11,16 +11,16 @@ class Car {
   turn(direction) {
     switch (direction) {
       case 'north':
-        carImage.setAttribute('class', 'north')
+        this.$img.setAttribute('class', 'north')
         break
       case 'south':
-        carImage.setAttribute('class', 'south')
+        this.$img.setAttribute('class', 'south')
         break
       case 'east':
-        carImage.setAttribute('class', 'east')
+        this.$img.setAttribute('class', 'east')
         break
       case 'west':
-        carImage.setAttribute('class', 'west')
+        this.$img.setAttribute('class', 'west')
     }
   }
 }
