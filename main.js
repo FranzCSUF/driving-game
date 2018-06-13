@@ -8,8 +8,8 @@ class Car {
     this.direction = direction
     this.location = location
   }
-  turn() {
-    switch (this.direction) {
+  turn(direction) {
+    switch (direction) {
       case 'north':
         carImage.setAttribute('class', 'north')
         break
@@ -25,20 +25,20 @@ class Car {
   }
 }
 
+var alfaRomeo = new Car(carImage)
+
 window.addEventListener('keydown', function (event) {
   switch (event.key) {
     case 'ArrowUp':
-      carImage.setAttribute('class', 'north')
+      alfaRomeo.turn('north')
       break
     case 'ArrowDown':
-      carImage.setAttribute('class', 'south')
+      alfaRomeo.turn('south')
       break
     case 'ArrowLeft':
-      carImage.setAttribute('class', 'west')
+      alfaRomeo.turn('west')
       break
     case 'ArrowRight':
-      carImage.setAttribute('class', 'east')
+      alfaRomeo.turn('east')
   }
 })
-
-var alfaRomeo = new Car(carImage)
