@@ -12,16 +12,13 @@ class Car {
     switch (this.direction) {
       case 'north':
         carImage.setAttribute('class', 'north')
-    }
-    switch (this.direction) {
+        break
       case 'south':
         carImage.setAttribute('class', 'south')
-    }
-    switch (this.direction) {
+        break
       case 'east':
         carImage.setAttribute('class', 'east')
-    }
-    switch (this.direction) {
+        break
       case 'west':
         carImage.setAttribute('class', 'west')
     }
@@ -32,16 +29,13 @@ window.addEventListener('keydown', function (event) {
   switch (event.key) {
     case 'ArrowUp':
       carImage.setAttribute('class', 'north')
-  }
-  switch (event.key) {
+      break
     case 'ArrowDown':
       carImage.setAttribute('class', 'south')
-  }
-  switch (event.key) {
+      break
     case 'ArrowLeft':
       carImage.setAttribute('class', 'west')
-  }
-  switch (event.key) {
+      break
     case 'ArrowRight':
       carImage.setAttribute('class', 'east')
   }
