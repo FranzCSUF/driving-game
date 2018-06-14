@@ -12,19 +12,19 @@ class Car {
     this.direction = direction
     switch (direction) {
       case 'north':
-        this.$img.setAttribute('class', 'north')
+        this.$img.className = 'north'
         break
       case 'south':
-        this.$img.setAttribute('class', 'south')
+        this.$img.className = 'south'
         break
       case 'east':
-        this.$img.setAttribute('class', 'east')
+        this.$img.className = 'east'
         break
       case 'west':
-        this.$img.setAttribute('class', 'west')
+        this.$img.className = 'west'
     }
   }
-  move() {
+  move(direction) {
     switch (this.direction) {
       case 'north':
         this.location[1] -= this.speed
@@ -38,23 +38,28 @@ class Car {
       case 'west':
         this.location[0] -= this.speed
     }
+    this.$img.setAttribute('style', 'top:' + this.location[1] + 'px ; left:' + this.location[0] + 'px')
   }
 }
 
-var alfaRomeo = new Car(carImage)
+var alfaRomeo = new Car(carImage, 50, 'north', [50, 50])
 
 window.addEventListener('keydown', function (event) {
   switch (event.key) {
     case 'ArrowUp':
       alfaRomeo.turn('north')
+      alfaRomeo.move('north')
       break
     case 'ArrowDown':
       alfaRomeo.turn('south')
+      alfaRomeo.move('south')
       break
     case 'ArrowLeft':
       alfaRomeo.turn('west')
+      alfaRomeo.move('west')
       break
     case 'ArrowRight':
       alfaRomeo.turn('east')
+      alfaRomeo.move('east')
   }
 })
