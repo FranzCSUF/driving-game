@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 var carImage = document.querySelector('img')
+var setInt = null
 
 class Car {
   constructor($img, speed, direction, location) {
@@ -40,26 +41,33 @@ class Car {
     }
     this.$img.setAttribute('style', 'top:' + this.location[1] + 'px ; left:' + this.location[0] + 'px')
   }
+  start() {
+    setInterval(() => this.move(), 16)
+  }
 }
 
-var alfaRomeo = new Car(carImage, 50, 'north', [50, 50])
+var alfaRomeo = new Car(carImage, 10, 'north', [0, 0])
 
 window.addEventListener('keydown', function (event) {
   switch (event.key) {
     case 'ArrowUp':
       alfaRomeo.turn('north')
       alfaRomeo.move('north')
+      alfaRomeo.start()
       break
     case 'ArrowDown':
       alfaRomeo.turn('south')
       alfaRomeo.move('south')
+      alfaRomeo.start()
       break
     case 'ArrowLeft':
       alfaRomeo.turn('west')
       alfaRomeo.move('west')
+      alfaRomeo.start()
       break
     case 'ArrowRight':
       alfaRomeo.turn('east')
       alfaRomeo.move('east')
+      alfaRomeo.start()
   }
 })
