@@ -39,35 +39,34 @@ class Car {
       case 'west':
         this.location[0] -= this.speed
     }
-    this.$img.setAttribute('style', 'top:' + this.location[1] + 'px ; left:' + this.location[0] + 'px')
+    this.$img.style = 'top:' + this.location[1] + 'px ; left:' + this.location[0] + 'px'
   }
   start() {
     setInterval(() => this.move(), 16)
   }
 }
 
-var alfaRomeo = new Car(carImage, 10, 'north', [0, 0])
+var alfaRomeo = new Car(carImage, 2, 'north', [0, 0])
 
-window.addEventListener('keydown', function (event) {
+window.addEventListener('keydown', function () {
+  if (event.key === ' ') {
+    alfaRomeo.start()
+    alfaRomeo.move()
+  }
+})
+
+window.addEventListener('keydown', function () {
   switch (event.key) {
     case 'ArrowUp':
       alfaRomeo.turn('north')
-      alfaRomeo.move('north')
-      alfaRomeo.start()
       break
     case 'ArrowDown':
       alfaRomeo.turn('south')
-      alfaRomeo.move('south')
-      alfaRomeo.start()
       break
     case 'ArrowLeft':
       alfaRomeo.turn('west')
-      alfaRomeo.move('west')
-      alfaRomeo.start()
       break
     case 'ArrowRight':
       alfaRomeo.turn('east')
-      alfaRomeo.move('east')
-      alfaRomeo.start()
   }
 })
