@@ -44,6 +44,9 @@ class Car {
   start() {
     setInterval(() => this.move(), 16)
   }
+  stop() {
+    clearInterval(this.start)
+  }
 }
 
 var alfaRomeo = new Car(carImage, 2, 'north', [0, 0])
