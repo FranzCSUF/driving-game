@@ -42,14 +42,10 @@ class Car {
     this.$img.style = 'top:' + this.location[1] + 'px ; left:' + this.location[0] + 'px'
   }
   start() {
-    if (this.isRunning === false) {
-      setInt = setInterval(() => this.move(), 16)
-      this.isRunning = true
-    }
-    else {
-      clearInterval(setInt)
-      this.isRunning = false
-    }
+    setInt = setInterval(() => this.move(), 16)
+  }
+  stop() {
+    clearInterval(setInt)
   }
 }
 
@@ -57,7 +53,14 @@ var alfaRomeo = new Car(carImage, 10, 'north', [0, 0])
 
 document.addEventListener('keydown', function () {
   if (event.key === ' ') {
-    alfaRomeo.start()
+    if (this.isRunning === false) {
+      alfaRomeo.start()
+      this.isRunning = true
+    }
+    else {
+      alfaRomeo.stop()
+      this.isRunning = false
+    }
   }
 })
 
