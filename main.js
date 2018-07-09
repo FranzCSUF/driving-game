@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
-var carImage = document.querySelector('img')
-var setInt = null
+var $carImage = document.querySelector('img')
 
 class Car {
   constructor($img, speed, direction, location) {
@@ -9,24 +7,26 @@ class Car {
     this.direction = direction
     this.location = location
     this.isRunning = false
+    this.interval = null
   }
   turn(direction) {
     this.direction = direction
+    this.$img.classList = ''
     switch (direction) {
       case 'north':
-        this.$img.className = 'north'
+        this.$img.classList.add('north')
         break
       case 'south':
-        this.$img.className = 'south'
+        this.$img.classList.add('south')
         break
       case 'east':
-        this.$img.className = 'east'
+        this.$img.classList.add('east')
         break
       case 'west':
-        this.$img.className = 'west'
+        this.$img.classList.add('west')
     }
   }
-  move(direction) {
+  move() {
     switch (this.direction) {
       case 'north':
         this.location[1] -= this.speed
@@ -43,29 +43,29 @@ class Car {
     this.$img.style = 'top:' + this.location[1] + 'px ; left:' + this.location[0] + 'px'
   }
   start() {
-    setInt = setInterval(() => this.move(), 16)
+    this.interval = setInterval(() => this.move(), 16)
+    this.isRunning = true
   }
   stop() {
-    clearInterval(setInt)
+    clearInterval(this.interval)
+    this.isRunning = false
   }
 }
 
-var alfaRomeo = new Car(carImage, 10, 'north', [0, 0])
+var alfaRomeo = new Car($carImage, 10, 'north', [0, 0])
 
-document.addEventListener('keydown', function () {
+document.addEventListener('keydown', function (event) {
   if (event.key === ' ') {
-    if (this.isRunning === false) {
+    if (alfaRomeo.isRunning === false) {
       alfaRomeo.start()
-      this.isRunning = true
     }
     else {
       alfaRomeo.stop()
-      this.isRunning = false
     }
   }
 })
 
-document.addEventListener('keydown', function () {
+document.addEventListener('keydown', function (event) {
   switch (event.key) {
     case 'ArrowUp':
       alfaRomeo.turn('north')
