@@ -1,4 +1,4 @@
-var carImage = document.querySelector('img')
+var $carImage = document.querySelector('img')
 
 class Car {
   constructor($img, speed, direction, location) {
@@ -52,7 +52,7 @@ class Car {
   }
 }
 
-var alfaRomeo = new Car(carImage, 10, 'north', [0, 0])
+var alfaRomeo = new Car($carImage, 10, 'north', [0, 0])
 
 document.addEventListener('keydown', function (event) {
   if (event.key === ' ') {
