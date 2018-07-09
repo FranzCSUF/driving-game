@@ -11,18 +11,19 @@ class Car {
   }
   turn(direction) {
     this.direction = direction
+    this.$img.classList = ''
     switch (direction) {
       case 'north':
-        this.$img.className = 'north'
+        this.$img.classList.add('north')
         break
       case 'south':
-        this.$img.className = 'south'
+        this.$img.classList.add('south')
         break
       case 'east':
-        this.$img.className = 'east'
+        this.$img.classList.add('east')
         break
       case 'west':
-        this.$img.className = 'west'
+        this.$img.classList.add('west')
     }
   }
   move(direction) {
