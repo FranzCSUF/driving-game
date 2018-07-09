@@ -26,7 +26,7 @@ class Car {
         this.$img.classList.add('west')
     }
   }
-  move(direction) {
+  move() {
     switch (this.direction) {
       case 'north':
         this.location[1] -= this.speed
