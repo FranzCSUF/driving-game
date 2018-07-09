@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 var carImage = document.querySelector('img')
 var setInt = null
 
