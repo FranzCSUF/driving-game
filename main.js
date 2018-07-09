@@ -54,7 +54,7 @@ class Car {
 
 var alfaRomeo = new Car(carImage, 10, 'north', [0, 0])
 
-document.addEventListener('keydown', function () {
+document.addEventListener('keydown', function (event) {
   if (event.key === ' ') {
     if (alfaRomeo.isRunning === false) {
       alfaRomeo.start()
@@ -65,7 +65,7 @@ document.addEventListener('keydown', function () {
   }
 })
 
-document.addEventListener('keydown', function () {
+document.addEventListener('keydown', function (event) {
   switch (event.key) {
     case 'ArrowUp':
       alfaRomeo.turn('north')
