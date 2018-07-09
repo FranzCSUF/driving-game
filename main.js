@@ -44,9 +44,11 @@ class Car {
   }
   start() {
     this.interval = setInterval(() => this.move(), 16)
+    alfaRomeo.isRunning = true
   }
   stop() {
     clearInterval(this.interval)
+    alfaRomeo.isRunning = false
   }
 }
 
@@ -56,11 +58,9 @@ document.addEventListener('keydown', function () {
   if (event.key === ' ') {
     if (alfaRomeo.isRunning === false) {
       alfaRomeo.start()
-      alfaRomeo.isRunning = true
     }
     else {
       alfaRomeo.stop()
-      alfaRomeo.isRunning = false
     }
   }
 })
