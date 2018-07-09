@@ -8,6 +8,7 @@ class Car {
     this.speed = speed
     this.direction = direction
     this.location = location
+    this.isRunning = 'yes'
   }
   turn(direction) {
     this.direction = direction
@@ -44,21 +45,18 @@ class Car {
   start() {
     setInterval(() => this.move(), 16)
   }
-  stop() {
-    clearInterval(this.start)
-  }
 }
 
-var alfaRomeo = new Car(carImage, 2, 'north', [0, 0])
+var alfaRomeo = new Car(carImage, 10, 'north', [0, 0])
 
-window.addEventListener('keydown', function () {
+document.addEventListener('keydown', function () {
   if (event.key === ' ') {
     alfaRomeo.start()
     alfaRomeo.move()
   }
 })
 
-window.addEventListener('keydown', function () {
+document.addEventListener('keydown', function () {
   switch (event.key) {
     case 'ArrowUp':
       alfaRomeo.turn('north')
