@@ -45,9 +45,12 @@ class Car {
   start() {
     setInterval(() => this.move(), 16)
   }
+  stop() {
+    clearInterval(this.start)
+  }
 }
 
-var alfaRomeo = new Car(carImage, 10, 'north', [0, 0])
+var alfaRomeo = new Car(carImage, 2, 'north', [0, 0])
 
 document.addEventListener('keydown', function () {
   if (event.key === ' ') {
