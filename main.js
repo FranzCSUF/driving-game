@@ -44,11 +44,11 @@ class Car {
   }
   start() {
     this.interval = setInterval(() => this.move(), 16)
-    alfaRomeo.isRunning = true
+    this.isRunning = true
   }
   stop() {
     clearInterval(this.interval)
-    alfaRomeo.isRunning = false
+    this.isRunning = false
   }
 }
 
