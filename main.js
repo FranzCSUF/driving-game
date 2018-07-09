@@ -1,5 +1,4 @@
 var carImage = document.querySelector('img')
-var setInt = null
 
 class Car {
   constructor($img, speed, direction, location) {
@@ -8,6 +7,7 @@ class Car {
     this.direction = direction
     this.location = location
     this.isRunning = false
+    this.interval = null
   }
   turn(direction) {
     this.direction = direction
@@ -43,10 +43,10 @@ class Car {
     this.$img.style = 'top:' + this.location[1] + 'px ; left:' + this.location[0] + 'px'
   }
   start() {
-    setInt = setInterval(() => this.move(), 16)
+    this.interval = setInterval(() => this.move(), 16)
   }
   stop() {
-    clearInterval(setInt)
+    clearInterval(this.interval)
   }
 }
 
@@ -54,13 +54,13 @@ var alfaRomeo = new Car(carImage, 10, 'north', [0, 0])
 
 document.addEventListener('keydown', function () {
   if (event.key === ' ') {
-    if (this.isRunning === false) {
+    if (alfaRomeo.isRunning === false) {
       alfaRomeo.start()
-      this.isRunning = true
+      alfaRomeo.isRunning = true
     }
     else {
       alfaRomeo.stop()
-      this.isRunning = false
+      alfaRomeo.isRunning = false
     }
   }
 })
